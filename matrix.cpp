@@ -9,22 +9,15 @@
 #include <QDebug>
 #include <math.h>
 //template <class T>
-Matrix::Matrix()
-{
 
-}
-
-Matrix::~Matrix()
-{
-
-}
-
-TTYPE Matrix::data(size_t x, size_t y)
+template <class TTYPE>
+TTYPE Matrix<TTYPE>::data(size_t x, size_t y)
 {
     return m_data.at(x + width() * y);
 }
 
-QVector<int> Matrix::histogram(int bins)
+template <class TTYPE>
+QVector<int> Matrix<TTYPE>::histogram(int bins)
 {
     QVector<int> histo(bins);
     int binsize(pow(sizeof(TTYPE)*16,2)/bins);
@@ -54,8 +47,9 @@ QVector<int> Matrix::histogram(int bins)
     missing files.  Feel free to add this error checking if you'd like
     to.
 */
+template <class TTYPE>
 void
-Matrix::readData(const std::string filename)
+Matrix<TTYPE>::readData(const std::string filename)
 {
     // Open the file
     std::ifstream file(filename.c_str());

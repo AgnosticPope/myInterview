@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
         std::cout << "Error!  Please supply a filename on the command line." << std::endl;
         return 1;
     }
-    Matrix m;
+    U8Matrix m;
     m.readData(argv[1]);
     std::cout << "Read a matrix of size [" << m.height() << "," << m.width() << "]:" << std::endl;
     for (size_t y = 0; y < m.height(); y++)
@@ -43,6 +43,4 @@ int main(int argc, char* argv[])
     {
         cout << binNum++ << " is " << i <<std::endl;
     }
-
-
 }

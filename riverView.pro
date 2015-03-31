@@ -8,8 +8,7 @@ CONFIG   -= app_bundle
 
 TEMPLATE = app
 
-SOURCES += main.cpp io.cpp \
-    matrix.cpp
+SOURCES += main.cpp
 
 HEADERS += \
     matrix.h

@@ -21,7 +21,7 @@
     missing files.  Feel free to add this error checking if you'd like
     to.
 */
-void readUint8Matrix(const std::string filename, 
+void readUint8Matrix(const std::string filename,
                     std::vector<uint8_t>& matrix, 
                     unsigned int& height,
                     unsigned int& width);

@@ -3,13 +3,15 @@
 
 #include <QVector>
 
-typedef u_int8_t TTYPE;
+//typedef u_int8_t TTYPE;
 
+
+template <class TTYPE>
 class Matrix
 {
 public:
-    Matrix();
-    ~Matrix();
+    Matrix(){}
+    ~Matrix(){}
     void readData(const std::string filename);
     Matrix* copy() { return new Matrix(*this); }
 
@@ -23,7 +25,8 @@ private:
     size_t m_dim[2];
 };
 
-
-//typedef Matrix<int> Uint8Matrix;
+typedef Matrix<u_int8_t> U8Matrix;
+typedef Matrix<float> FMatrix;
+#include "matrix.cpp"
 
 #endif // MATRIX_H
