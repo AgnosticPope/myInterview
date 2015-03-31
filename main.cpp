@@ -28,9 +28,10 @@ int main(int argc, char* argv[])
     Matrix m;
     m.readData(argv[1]);
     std::cout << "Read a matrix of size [" << m.height() << "," << m.width() << "]:" << std::endl;
-    for (size_t x = 0; x < m.width(); x++)
+    for (size_t y = 0; y < m.height(); y++)
     {
-        for (size_t y = 0; y < m.width(); y++)
+        cout << "\n";
+        for (size_t x = 0; x < m.width(); x++)
         {
             cout << (int)m.data(x,y) << " ";
         }

@@ -20,7 +20,7 @@ Matrix::~Matrix()
 
 TTPYE Matrix::data(size_t x, size_t y)
 {
-    return m_data.at(x % width() + y);
+    return m_data.at(x + width() * y);
 }
 
 /** Read a matrix from a csv file where the first two elements are the
