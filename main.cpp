@@ -37,4 +37,12 @@ int main(int argc, char* argv[])
         }
     }
 
+    auto h=m.histogram(10);
+    int binNum=0;
+    for (auto i : h)
+    {
+        cout << binNum++ << " is " << i <<std::endl;
+    }
+
+
 }

@@ -6,7 +6,8 @@
 #include <vector>
 #include <assert.h>
 #include <stdlib.h>
-
+#include <QDebug>
+#include <math.h>
 //template <class T>
 Matrix::Matrix()
 {
@@ -18,9 +19,21 @@ Matrix::~Matrix()
 
 }
 
-TTPYE Matrix::data(size_t x, size_t y)
+TTYPE Matrix::data(size_t x, size_t y)
 {
     return m_data.at(x + width() * y);
+}
+
+QVector<int> Matrix::histogram(int bins)
+{
+    QVector<int> histo(bins);
+    int binsize(pow(sizeof(TTYPE)*16,2)/bins);
+    for (TTYPE i : m_data)
+    {
+        histo[i/binsize]++;
+    }
+    std::cout<<"\nBinsize is " << binsize << std::endl;
+    return histo;
 }
 
 /** Read a matrix from a csv file where the first two elements are the
