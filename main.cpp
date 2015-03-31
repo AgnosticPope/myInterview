@@ -9,9 +9,6 @@
 #include <iostream>
 #include <stdint.h>
 #include "matrix.h"
-
-#include "io.hpp"
-
 using std::cout;
 
 /** This is an example program that reads a matrix represented in a
