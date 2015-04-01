@@ -3,15 +3,26 @@
 
 #include <QVector>
 
-//typedef u_int8_t TTYPE;
+// Generic Matrix
+class GMatrix
+{
+public:
+    GMatrix() {}
+    virtual ~GMatrix() {}
+    virtual void readData(const std::string filename)=0;
+    virtual GMatrix* copy()=0;
+    virtual size_t height() const=0;
+    virtual size_t width() const=0;
+    virtual QVector<int> histogram(int bins)=0;
+};
 
 
 template <class TTYPE>
-class Matrix
+class Matrix : public GMatrix
 {
 public:
     Matrix(){}
-    ~Matrix(){}
+    virtual ~Matrix(){}
     void readData(const std::string filename);
     Matrix* copy() { return new Matrix(*this); }
 

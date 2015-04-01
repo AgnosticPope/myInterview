@@ -22,22 +22,24 @@ int main(int argc, char* argv[])
         std::cout << "Error!  Please supply a filename on the command line." << std::endl;
         return 1;
     }
-    U8Matrix m;
-    m.readData(argv[1]);
-    std::cout << "Read a matrix of size [" << m.height() << "," << m.width() << "]:" << std::endl;
-    for (size_t y = 0; y < m.height(); y++)
+    GMatrix* m(new U8Matrix());
+    auto m8(dynamic_cast<U8Matrix*>(m));
+    m->readData(argv[1]);
+    std::cout << "Read a matrix of size [" << m->height() << "," << m->width() << "]:" << std::endl;
+    for (size_t y = 0; y < m->height(); y++)
     {
         cout << "\n";
-        for (size_t x = 0; x < m.width(); x++)
+        for (size_t x = 0; x < m->width(); x++)
         {
-            cout << (int)m.data(x,y) << " ";
+            cout << (int)m8->data(x,y) << " ";
         }
     }
 
-    auto h=m.histogram(10);
+    auto h=m->histogram(10);
     int binNum=0;
     for (auto i : h)
     {
         cout << binNum++ << " is " << i <<std::endl;
     }
+    delete m;
 }
